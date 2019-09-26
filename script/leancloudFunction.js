@@ -3,17 +3,14 @@
  * 创建时间:2019.7.18
  * 创建人:李见波
  */
-
 //初始化leancloud
 var APP_ID = 'jjagdvss81s2w8gaho8pjsgttd2ormabhinggca2gmctoi5b';
 var APP_KEY = '6aocso66b977p1lfdohqx28jligeytw75bob3218xvy9swhu';
-
 
 AV.init({
     appId: APP_ID,
     appKey: APP_KEY
 });
-
 //实例化云服务器数据表
 var kitchen = AV.Object.extend("cafeKitchen");
 var category = AV.Object.extend("category");
@@ -22,8 +19,6 @@ var userAddress = AV.Object.extend("userAddress");
 var customer = AV.Object.extend("customer");
 var user = AV.Object.extend("_User");
 var order = AV.Object.extend("order");
-
-
 /**
  *获取所有订单信息............
  * 参数page:页数
@@ -68,8 +63,9 @@ function getAllOrders(page) {
             };
             orderArr.push(order);
         })
+        console.log("订单》》》》" + JSON.stringify(orderArr));
         return orderArr;
     }).catch(function(err) {
-        console.log(err)
+        alert(JSON.stringify(err))
     })
 }
